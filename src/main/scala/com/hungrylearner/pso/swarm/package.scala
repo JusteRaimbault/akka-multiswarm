@@ -48,7 +48,7 @@ package object swarm {
    *
    * @param iterations Number of iterations to run for this SwarmAround to be completed.
    */
-  case class SwarmAround( iterations: Int) extends Command
+  case class SwarmAround(iterations: Int) extends Command
 
   /**
    * Cancel any swarming and report SwarmingCancelled with bestParticle so far.
@@ -56,14 +56,6 @@ package object swarm {
   case object CancelSwarming extends Command
 
 
-  /**
-   * Tell a child swarm about an influential position. This is typically a local or global
-   * best, but depends on the social strategy.
-   *
-   * @param evaluatedPosition
-   * @param iteration The current iteration when message was sent.
-   */
-  case class InfluentialPosition[F,P]( evaluatedPosition: EvaluatedPosition[F,P], iteration: Int) extends Influence
 
 
   /**

@@ -38,7 +38,7 @@ trait AsyncRegionalSupervisor[F,P] extends RegionalSupervisor[F,P] {
   override protected def tellChildren( evaluatedPosition: EvaluatedPosition[F,P], iteration: Int, progress: Progress, originator: ActorRef) = {
     // For now, if we get some information about a fitter position, we tell the children.
     if( evaluatedPosition.isBest)
-      sendToChildren( InfluentialPosition[F,P]( evaluatedPosition, iteration), originator) // Don't send to originator.
+      sendToChildren( InfluentialPosition[F,P]( evaluatedPosition, iteration).asInstanceOf[Message], originator) // Don't send to originator.
   }
 
 }

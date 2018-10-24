@@ -1,6 +1,7 @@
 package com.hungrylearner.pso.swarm
 
 import com.hungrylearner.pso.particle.{EvaluatedPosition, Position, Particle}
+import com.hungrylearner.pso.swarm._
 import com.hungrylearner.pso.swarm.State._
 import com.hungrylearner.pso.swarm.Report._
 
@@ -15,8 +16,7 @@ trait LocalWorker[F,P] extends Worker[F,P] {
     case SwarmOneIteration =>
       if (notDone) onOneIteration( bestPosition)
 
-    case SwarmAround( iterations) =>
-      if (notDone) onSwarmAround( iterations)
+    case sa: SwarmAround => if (notDone) onSwarmAround(sa.iterations)
 
     case CancelSwarming =>
       if (notDone) onCancelSwarming()

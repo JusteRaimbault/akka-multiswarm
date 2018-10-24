@@ -126,7 +126,7 @@ class Simulation( iterations: Int) extends Actor with ActorLogging {
                          terminateCriteriaStatus: TerminateCriteriaStatus ) =>  onReport( completedType, childIndex, evaluatedPosition, iteration, progress, terminateCriteriaStatus)
     case Terminated( child) =>
       log.info( s"LocalSwarmActor '${child.path.name}' Terminated ")
-      context.system.shutdown()
+      context.system.terminate() //shutdown()
 
     case unknownMessage: AnyRef => log.error( "RunPso.receive: Unknown message {}", unknownMessage)
   }
