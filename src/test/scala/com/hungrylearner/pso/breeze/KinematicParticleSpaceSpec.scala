@@ -3,6 +3,7 @@ package com.hungrylearner.pso.particle.breezedvd
 import org.specs2.mutable._
 import org.mockito.Mockito._
 import org.specs2.mock.Mockito
+import org.mockito.mock._
 import akka.actor.ActorSystem
 import breeze.linalg.{DenseVector, sum}
 import breeze.numerics.abs

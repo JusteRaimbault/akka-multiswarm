@@ -24,7 +24,7 @@ object Report {
    * @tparam F Fitness type
    * @tparam P Position value type
    */
-  case class ProgressReport[F,P]( completedType: CompletedType,
+  case class ProgressReport[F,P](completedType: CompletedType,
                                   childIndex: Int,
                                   evaluatedPosition: EvaluatedPosition[F,P],
                                   iteration: Int,

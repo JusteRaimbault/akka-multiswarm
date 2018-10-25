@@ -9,7 +9,6 @@ import akka.actor._
 trait SwarmActor[F,P] extends Actor with ActorLogging
 
 /**
- * @inheritdoc
  *
  * @param swarmIntelligenceFactory Factory for creating the LocalSwarmIntelligence for this actor.
  *                                 The factory parameters are the childIndex and actor context.

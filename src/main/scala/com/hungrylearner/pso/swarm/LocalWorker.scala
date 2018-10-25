@@ -9,7 +9,7 @@ import com.hungrylearner.pso.swarm.Report._
 trait LocalWorker[F,P] extends Worker[F,P] {
   this: LocalId[F,P] with LocalSocialInfluence[F,P] =>
 
-  protected var state = INTIALIZED
+  protected var state = INITIALIZED
 
   override def onCommand(command: Command) = command match {
 
@@ -86,6 +86,7 @@ trait LocalWorkerImpl[F,P] extends LocalWorker[F,P] {
   def oneIterationCompleted(): Unit = {
 
     val terminateCriteriaStatus = terminateCriteriaMet( iteration)
+    Logger.debug(s"iteration completed : $iteration criteria : $terminateCriteriaStatus")
     // TODO: if iterations are done and terminate criteria is not met, we need to stop, but what do we report?
     if( terminateCriteriaStatus.isMet) {
 

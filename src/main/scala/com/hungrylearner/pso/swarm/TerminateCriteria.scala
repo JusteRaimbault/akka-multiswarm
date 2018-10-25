@@ -27,6 +27,7 @@ trait LocalTerminateCriteria[F,P] extends TerminateCriteria[F,P] {
       case TerminateCriteriaMetNow =>
         tcStatus = TerminateCriteriaMetPreviously
       case TerminateCriteriaMetPreviously =>
+      case _ =>
     }
     tcStatus
   }
@@ -35,8 +36,12 @@ trait LocalTerminateCriteria[F,P] extends TerminateCriteria[F,P] {
 trait LocalTerminateOnMaxIterations[F,P] extends LocalTerminateCriteria[F,P] {
   this: LocalId[F,P] =>
 
-  override protected def terminateCriteriaTest( iteration: Int): Boolean =
-    iteration >= config.context.iterations
+  override protected def terminateCriteriaTest( iteration: Int): Boolean = {
+    val maxiter = config.context.iterations
+    Logger.debug(s"testing maxiter criteria : $iteration / $maxiter")
+    iteration >= maxiter
+  }
+
 }
 
 

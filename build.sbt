@@ -2,7 +2,7 @@ organization := "org"
 
 name := "akka-multiswarm"
 
-version := "0.1"
+version := "0.1-SNAPSHOT"
 
 //scalaVersion := "2.10.6"
 scalaVersion := "2.12.4"
@@ -20,8 +20,8 @@ libraryDependencies ++= Seq(
   // native libraries greatly improve performance, but increase jar sizes.
   "org.scalanlp" %% "breeze-natives" % "0.13.2",
   //"org.specs2" %% "specs2" % "2.3.12" % "test"
-  "org.specs2" %% "specs2-core" % "3.8.9" % "test"
-  //"org.mockito" % "mockito-core" % "1.9.5")
+  "org.specs2" %% "specs2-core" % "3.8.9" % "test",
+  "org.mockito" % "mockito-core" % "2.23.0"
 )
 
 scalacOptions in Test ++= Seq("-Yrangepos")

@@ -34,7 +34,10 @@ trait PeriodicLocalReporting[F,P] extends LocalReportingStrategy[F,P] {
 
   override def reportOneIterationCompleted( childIndex: Int, evaluatedPosition: EvaluatedPosition[F,P], iteration: Int, progress: Progress) = {}
   override def reportSwarmAroundCompleted( childIndex: Int, evaluatedPosition: EvaluatedPosition[F,P], iteration: Int, progress: Progress) = report( ProgressReport[F,P]( SwarmAroundCompleted, childIndex, evaluatedPosition, iteration, progress, TerminateCriteriaNotMet))
-  override def reportSwarmingCompleted( childIndex: Int, evaluatedPosition: EvaluatedPosition[F,P], iteration: Int, progress: Progress, terminateCriteriaStatus: TerminateCriteriaStatus) = report( ProgressReport[F,P]( SwarmingCompleted, childIndex, evaluatedPosition, iteration, progress, terminateCriteriaStatus))
+  override def reportSwarmingCompleted( childIndex: Int, evaluatedPosition: EvaluatedPosition[F,P], iteration: Int, progress: Progress, terminateCriteriaStatus: TerminateCriteriaStatus) = {
+    // TODO log here
+    report(ProgressReport[F, P](SwarmingCompleted, childIndex, evaluatedPosition, iteration, progress, terminateCriteriaStatus))
+  }
 }
 
 /**

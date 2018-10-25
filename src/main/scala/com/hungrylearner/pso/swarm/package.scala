@@ -65,8 +65,8 @@ package object swarm {
    */
   object State extends Enumeration {
     type State = Value
-    val UNINTIALIZED = Value
-    val INTIALIZED = Value
+    val UNINITIALIZED = Value
+    val INITIALIZED = Value
     val SWARMING_ONE_ITERATION = Value
     val SWARMING_AROUND = Value
     val RESTING = Value
